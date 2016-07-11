@@ -11,7 +11,7 @@ init =
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-    case msg of
+    case (Debug.log "Got message" msg) of
         GetNewsResponse (Err errorMessage)->
             ( { model | error = Just errorMessage }
             , Cmd.none
