@@ -1,5 +1,8 @@
 module Types exposing (..)
 
-type alias Model = {}
+type alias Model = { news : List News }
+
+type alias News =
+    { headline : String }
 
 type Msg = Nope
