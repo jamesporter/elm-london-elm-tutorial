@@ -1,17 +1,25 @@
 module State exposing (..)
+
 import Types exposing (..)
+import Rest exposing (..)
 
 init : ( Model, Cmd Msg)
 init =
-    ( { news = [] }
-    , Cmd.none
+    ( { news = [], error = Nothing }
+    , getNews
     )
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
-        Nope ->
-            (model, Cmd.none)
+        GetNewsResponse (Err errorMessage)->
+            ( { model | error = Just errorMessage }
+            , Cmd.none
+            )
+        GetNewsResponse (Ok news)->
+                ( { model | news = news }
+                , Cmd.none
+                )
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

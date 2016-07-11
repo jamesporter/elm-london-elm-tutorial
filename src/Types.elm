@@ -1,8 +1,12 @@
 module Types exposing (..)
 
-type alias Model = { news : List News }
+import Http
+
+type alias Model =  { news : List News
+                    , error: Maybe Http.Error
+                    }
 
 type alias News =
     { headline : String }
 
-type Msg = Nope
+type Msg = GetNewsResponse (Result Http.Error (List News))

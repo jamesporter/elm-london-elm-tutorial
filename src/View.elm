@@ -11,6 +11,7 @@ root model =
     , ul []
         (List.map newsItem model.news)
     , text (toString model)
+    , div [] [code [] [ text (toString model) ]]
     ]
 
 newsItem : News -> Html Msg
