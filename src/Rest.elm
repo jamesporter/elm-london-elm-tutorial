@@ -11,7 +11,7 @@ endpoint = "http://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=5
 getNews : Cmd Msg
 getNews =
     get decodeNews endpoint
-    |> Task.perform Result.Err Result.Ok
+    |> Task.perform Failed Succeed
     |> Cmd.map GetNewsResponse
 
 decodeNews : Decoder (List News)
