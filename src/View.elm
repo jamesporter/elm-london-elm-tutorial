@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 
 root : Model -> Html Msg
 root model =
-    div []
+    div [ style [("padding",  "20px"), ("font-size", "1.1em")]]
     [ h1 [ style [ ( "font-style", "italic")]] [ text "News!"]
     , ul []
         (List.map newsItem model.news)
