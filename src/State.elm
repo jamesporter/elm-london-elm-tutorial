@@ -12,3 +12,7 @@ update msg model =
     case msg of
         Nope ->
             (model, Cmd.none)
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
